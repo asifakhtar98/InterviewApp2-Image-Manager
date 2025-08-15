@@ -7,7 +7,7 @@ import '../../data/models/image_item.dart';
 import '../widgets/loading_indicator.dart';
 import '../widgets/error_view.dart';
 import '../widgets/image_tile.dart';
-// Removed pagination ScrollNotifier usage; using limit-based fetch instead.
+
 
 class ImageItemListPage extends StatelessWidget {
   const ImageItemListPage({super.key});
@@ -76,7 +76,7 @@ class ImageItemListPage extends StatelessWidget {
             }
           },
           builder: (ctx, state) {
-            // Trigger initial fetch only once when we have no items and status is initial
+            
             if (state.status == ItemsStatus.initial) {
               ctx.read<ImageManagerBloc>().add(FetchItems());
               return const LoadingIndicator(label: 'Loading');

@@ -10,7 +10,7 @@ class NavigationService {
   bool _initialized = false;
 
   void init(GoRouter router) {
-    if (_initialized) return; // prevent re-assignment
+    if (_initialized) return; 
     _router = router;
     _initialized = true;
   }

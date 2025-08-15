@@ -22,9 +22,9 @@ class ItemTile extends StatelessWidget {
               aspectRatio: 16 / 9,
               child: Hero(
                 tag: 'imageItem-${item.id}',
-                // Flight should keep a solid background to avoid flicker on transparent images
+               
                 flightShuttleBuilder: (flightContext, animation, flightDirection, fromHeroContext, toHeroContext) {
-                  // Use a FadeTransition on flight for subtle effect
+                
                   return FadeTransition(
                     opacity: animation.drive(CurveTween(curve: Curves.easeInOut)),
                     child: toHeroContext.widget,

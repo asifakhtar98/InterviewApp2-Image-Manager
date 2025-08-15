@@ -21,7 +21,7 @@ class ImageManagerBloc extends HydratedBloc<ImageManagerEvent, ImageManagerState
 
   Future<void> _onFetch(FetchItems event, Emitter<ImageManagerState> emit) async {
     if (state.status == ItemsStatus.loading) return;
-  // Clear any previous messages so listener doesn't show old success while loading
+  
   emit(state.copyWith(status: ItemsStatus.loading, resetSuccessMessage: true, resetErrorMessage: true));
     try {
   final items = await repository.fetchImageItems(limit: state.limit);
@@ -37,7 +37,7 @@ class ImageManagerBloc extends HydratedBloc<ImageManagerEvent, ImageManagerState
   }
 
   Future<void> _onUpdateLimit(UpdateLimit event, Emitter<ImageManagerState> emit) async {
-  // Update limit and clear previous messages before refetching
+
   emit(state.copyWith(limit: event.limit, resetSuccessMessage: true, resetErrorMessage: true));
     add(FetchItems());
   }
